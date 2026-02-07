@@ -323,7 +323,7 @@ export function resolveTtsConfig(cfg: OpenClawConfig): ResolvedTtsConfig {
     },
     minimax: {
       apiKey: raw.minimax?.apiKey,
-      baseUrl: raw.minimax?.baseUrl?.trim() || DEFAULT_MINIMAX_BASE_URL,
+      baseUrl: (raw.minimax?.baseUrl?.trim() || DEFAULT_MINIMAX_BASE_URL).replace(/\/+$/, ""),
       model: raw.minimax?.model ?? DEFAULT_MINIMAX_MODEL,
       voiceId: raw.minimax?.voiceId ?? DEFAULT_MINIMAX_VOICE_ID,
       speed: raw.minimax?.speed ?? DEFAULT_MINIMAX_SPEED,
